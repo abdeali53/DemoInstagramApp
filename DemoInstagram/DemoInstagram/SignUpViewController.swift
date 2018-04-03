@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var txtDescibe: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view.
     }
 

@@ -22,6 +22,7 @@ class NearByFriendViewController: UIViewController,MKMapViewDelegate, CLLocation
     var manager : CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 print("==============Friend=========",userFriends.count)
         
         

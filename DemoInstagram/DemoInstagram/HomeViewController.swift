@@ -58,7 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   
+   self.hideKeyboardWhenTappedAround() 
         
         
         let username = UserDefaults.standard.value(forKey: "loginUser") as! String

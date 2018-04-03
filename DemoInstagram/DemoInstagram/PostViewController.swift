@@ -33,6 +33,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         //Load user
+        self.hideKeyboardWhenTappedAround() 
         let username = UserDefaults.standard.value(forKey: "loginUser") as! String
         let password = UserDefaults.standard.value(forKey: "loginPassword") as! String
         self.loadData(username:username, password: password)

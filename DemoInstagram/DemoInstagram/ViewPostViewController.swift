@@ -32,6 +32,7 @@ class ViewPostViewController: UIViewController,UITableViewDataSource, UITableVie
     var post : Post?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         loadCommentData()
         postImage.image = UIImage(data: post?.postimage as! Data)
         

@@ -27,7 +27,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround() 
              self.navigationItem.hidesBackButton = true
         self.tabBarController?.tabBar.isHidden = true
         

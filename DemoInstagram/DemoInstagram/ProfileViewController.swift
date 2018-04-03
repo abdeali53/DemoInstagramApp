@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
 
         // Make profile pic circular
 //        profilePhoto.layer.borderWidth = 1
@@ -241,4 +243,15 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
     }
     
     
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
