@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
         }
         return cell
     }
-    
+
     
     @IBOutlet weak var txtDescribe: UILabel!
     @IBOutlet weak var profilePhoto: UIImageView!
@@ -39,6 +39,9 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
     var posts = [Post]()
     var userFriends =  [Friend]()
     
+    let username = UserDefaults.standard.value(forKey: "loginUser") as! String
+    let password = UserDefaults.standard.value(forKey: "loginPassword") as! String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,8 +54,15 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
         //Load user
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
-        let username = UserDefaults.standard.value(forKey: "loginUser") as! String
-        let password = UserDefaults.standard.value(forKey: "loginPassword") as! String
+
+
+        collectionView.reloadData()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.loadData(username:username, password: password)
         if(users.count != 0){
             txtUsername.text = users[0].username
@@ -64,7 +74,6 @@ class ProfileViewController: UIViewController,UICollectionViewDelegate, UICollec
         self.addFriend()
         btnFriend.setTitle("Friends (" + String(userFriends.count) + ")", for: .normal)
         collectionView.reloadData()
-        
         
     }
 
